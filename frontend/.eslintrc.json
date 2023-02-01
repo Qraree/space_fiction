@@ -1,0 +1,14 @@
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console": "warn",
+    "quotes": ["warn", "single"],
+    "jsx-quotes": ["warn", "prefer-double"],
+    "prefer-const": "warn",
+    "indent": ["error", 2],
+    "semi": "error",
+    "import/no-unresolved": 0
+
+  }
+}
