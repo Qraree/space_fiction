@@ -6,7 +6,7 @@
     "quotes": ["warn", "single"],
     "jsx-quotes": ["warn", "prefer-double"],
     "prefer-const": "warn",
-    "indent": ["error", 2],
+    "indent": ["error", 4],
     "semi": "error",
     "import/no-unresolved": 0
 
