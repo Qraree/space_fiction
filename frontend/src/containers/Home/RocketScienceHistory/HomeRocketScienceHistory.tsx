@@ -20,6 +20,12 @@ const HomeRocketScienceHistory: FC = () => {
     return (
         <div className={styles.historyContainer}>
             <Navbar navbarHidden={navbarHidden} />
+            <div className={styles.contentContainer}>
+                <div className={styles.contentWrapper}>
+                    <h1>Welcome, wanderer!</h1>
+
+                </div>
+            </div>
         </div>
     );
 };
