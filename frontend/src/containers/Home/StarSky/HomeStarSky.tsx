@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useRef} from 'react';
 import styles from './HomeStarSky.module.scss';
-import {randomChoice, randomInInterval, randomInIntervalFloor, randomNumber} from '@/helpers/random';
+import {randomInInterval, randomInIntervalFloor, randomNumber} from '@/helpers/random';
 import useDeviceSize from '@/hooks/useDeviceSize';
 
 
@@ -34,23 +34,14 @@ const HomeStarSky: FC = () => {
             };
 
             this.update = function () {
-                if (this.x + this.radius > innerWidth || this.y - this.radius < 0) {
-                    this.x = randomChoice(0, randomNumber(innerWidth));
-                    if (this.x === 0) {
-                        this.y = randomNumber(innerHeight);
-                    } else {
-                        this.y = innerHeight;
-                    }
+                if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+                    this.dx = -this.dx;
                 }
 
-                if (this.x - this.radius < 0 || this.y + this.radius > innerHeight) {
-                    this.x = randomChoice(innerWidth, randomNumber(innerWidth));
-                    if (this.x === innerWidth) {
-                        this.y = randomNumber(innerHeight);
-                    } else {
-                        this.y = 0;
-                    }
+                if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
+                    this.dy = -this.dy;
                 }
+
                 this.x += this.dx;
                 this.y += this.dy;
                 this.draw();
@@ -88,9 +79,9 @@ const HomeStarSky: FC = () => {
     return (
         <div className={styles.starSkyContainer}>
             <canvas ref={canvasRef} />
-            <button
-                className={styles.button}
-                onClick={handleClick}>Click</button>
+            <button className={styles.button} onClick={handleClick}>
+                Click
+            </button>
         </div>
     );
 };

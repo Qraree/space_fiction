@@ -3,11 +3,12 @@
 .starSkyContainer {
   position: relative;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   background: $star-sky-color;
   display: flex;
   justify-content: center;
   align-content: center;
+  margin-bottom: $navbar-height;
 
   .button {
     position: absolute;
