@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/public/fonts/RobotoMono/RobotoMono-Light.ttf') format('opentype');
+  font-weight: 300; // light
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/public/fonts/RobotoMono/RobotoMono-Regular.ttf') format('opentype');
+  font-weight: 400; // normal
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/public/fonts/RobotoMono/RobotoMono-Medium.ttf') format('opentype');
+  font-weight: 500; // medium
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'RobotoMono';
+  src: url('/public/fonts/RobotoMono/RobotoMono-Bold.ttf') format('opentype');
+  font-weight: 700; // bold
+  font-display: swap;
+}

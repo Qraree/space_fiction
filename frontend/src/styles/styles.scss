@@ -1,7 +1,11 @@
 @import 'variables';
+@import 'robotofont';
+@import 'robotomonofont';
 
 body, html {
-  background: $primary-color;
+  background: $star-sky-color;
+  color: $white;
   margin: 0;
   overflow-x: hidden;
+  font-family: $roboto-mono-font, monospace;
 }
