@@ -2,11 +2,15 @@ import React, {FC, useEffect, useRef} from 'react';
 import styles from './HomeStarSky.module.scss';
 import {randomInInterval, randomInIntervalFloor, randomNumber} from '@/helpers/random';
 import useDeviceSize from '@/hooks/useDeviceSize';
+import Button from '@/components/ui/Button/Button';
+import {ButtonUnstyled} from '@mui/base';
+import {useRouter} from 'next/router';
 
 
 const HomeStarSky: FC = () => {
     const [widthState, heightState] = useDeviceSize();
     const canvasRef = useRef(null);
+    const router = useRouter();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -49,7 +53,7 @@ const HomeStarSky: FC = () => {
         }
 
         const circleArray: any = [];
-        
+
         for (let i = 0; i < 2000; i++) {
             // @ts-ignore
             circleArray.push(new Circle());
@@ -79,11 +83,11 @@ const HomeStarSky: FC = () => {
     return (
         <div className={styles.starSkyContainer}>
             <canvas ref={canvasRef} />
-            <button className={styles.button} onClick={handleClick}>
-                Click
-            </button>
+            <ButtonUnstyled className={styles.button} onClick={handleClick}>
+                Start
+            </ButtonUnstyled>
         </div>
     );
 };
- 
+
 export default HomeStarSky;
