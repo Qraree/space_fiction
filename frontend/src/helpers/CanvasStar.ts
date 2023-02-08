@@ -1,6 +1,6 @@
 import {randomChoice, randomInInterval, randomNumber} from '@/helpers/random';
 
-export function CanvasStar(ctx: any) {
+export default function CanvasStar(ctx: any) {
     this.x = randomNumber(innerWidth);
     this.y = randomNumber(innerHeight);
     this.dx = randomInInterval(-0.05, 0.05);
@@ -41,4 +41,5 @@ export function CanvasStar(ctx: any) {
         this.draw();
     };
 }
+
 
