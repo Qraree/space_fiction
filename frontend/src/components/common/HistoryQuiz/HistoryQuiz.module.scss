@@ -1,0 +1,42 @@
+@import "src/styles/variables";
+
+
+.quizWrapper {
+  margin: 20px auto;
+  width: 100%;
+  height: 200px;
+  border: 1px solid white;
+  padding: 10px;
+  box-sizing: border-box;
+
+  .optionWrapper {
+    width: 90%;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+
+    .option {
+      width: 70%;
+      height: 40px;
+      border: 1px solid white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #2c2a2a;
+      }
+
+    }
+  }
+
+
+  h4 {
+    margin: 0 0 10px 0;
+  }
+}
