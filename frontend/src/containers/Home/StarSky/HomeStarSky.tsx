@@ -1,10 +1,10 @@
-import React, {FC, useEffect, useRef} from 'react';
-import styles from './HomeStarSky.module.scss';
-import {randomInInterval, randomInIntervalFloor, randomNumber} from '@/helpers/random';
-import useDeviceSize from '@/hooks/useDeviceSize';
-import Button from '@/components/ui/Button/Button';
-import {ButtonUnstyled} from '@mui/base';
 import {useRouter} from 'next/router';
+import React, {FC, useEffect, useRef} from 'react';
+import useDeviceSize from '@/hooks/useDeviceSize';
+import {ButtonUnstyled} from '@mui/base';
+
+import styles from './HomeStarSky.module.scss';
+import CanvasStar from '../../../helpers/CanvasStar';
 
 
 const HomeStarSky: FC = () => {
@@ -19,44 +19,11 @@ const HomeStarSky: FC = () => {
         ctx.canvas.width = window.innerWidth;
         ctx.canvas.height = window.innerHeight;
 
-        function Circle() {
-            this.x = randomNumber(innerWidth);
-            this.y = randomNumber(innerHeight);
-            this.dx = randomInInterval(-0.05, 0.05);
-            this.dy = randomInInterval(-0.05, 0.05);
-            this.radius = randomNumber(1.5);
-            this.opacity = randomInInterval(0, 1);
-
-            this.draw = function () {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-                ctx.strokeStyle = 'black';
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity}`;
-                ctx.stroke();
-                ctx.fill();
-
-            };
-
-            this.update = function () {
-                if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
-                    this.dx = -this.dx;
-                }
-
-                if (this.y + this.radius > innerHeight || this.y - this.radius < 0) {
-                    this.dy = -this.dy;
-                }
-
-                this.x += this.dx;
-                this.y += this.dy;
-                this.draw();
-            };
-        }
-
         const circleArray: any = [];
 
         for (let i = 0; i < 2000; i++) {
             // @ts-ignore
-            circleArray.push(new Circle());
+            circleArray.push(new CanvasStar(ctx));
         }
 
         const animate = () => {
@@ -67,10 +34,7 @@ const HomeStarSky: FC = () => {
                 circleArray[i].update();
             }
         };
-
-
         animate();
-
     }, []);
 
     const handleClick = () => {

@@ -1,5 +1,4 @@
 import React from 'react';
-import Head from 'next/head';
 import HomeStarSky from '@/containers/Home/StarSky/HomeStarSky';
 import HomeMenu from '@/containers/Home/Menu/HomeMenu';
 import PageHeader from '@/components/common/PageHeader/PageHeader';
