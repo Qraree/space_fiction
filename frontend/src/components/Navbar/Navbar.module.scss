@@ -1,6 +1,10 @@
 @import "src/styles/variables";
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
+
+.link {
+  color: white;
+  text-decoration: none;
+}
 
 .navbar {
   position: fixed;
@@ -12,9 +16,6 @@
   transition: all 200ms;
   opacity: 0;
 
-
-
-
   width: 100%;
   height: $navbar-height;
   color: $white;
@@ -24,6 +25,7 @@
     margin-left: 30px;
     margin-right: 30px;
     font-size: 22px;
+
   }
 
   .navs {
@@ -48,7 +50,7 @@
   }
 }
 
-.navbarHide {
+.navbarShow {
   top: 0;
   opacity: 1;
 }
