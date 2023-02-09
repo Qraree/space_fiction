@@ -15,6 +15,7 @@
   justify-content: flex-start;
   transition: all 200ms;
   opacity: 0;
+  z-index: 9999;
 
   width: 100%;
   height: $navbar-height;
