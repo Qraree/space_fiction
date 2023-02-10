@@ -6,7 +6,7 @@ type LinkStyledProps = {
     href: string,
     children?: string | React.ReactNode,
 }
-const LinkStyled = ({href, children}: LinkStyledProps) => {
+const LinkStyled = ({ href, children }: LinkStyledProps) => {
     return (
         <Link href={href} className={styles.link}>
             {children}
