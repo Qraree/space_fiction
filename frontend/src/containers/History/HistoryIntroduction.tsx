@@ -1,6 +1,11 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import HistoryQuiz from '@/components/common/HistoryQuiz/HistoryQuiz';
 import {HISTORY_QUIZ} from '@/constants/history';
+import Model from '@/components/models/planets/Model';
+import {Environment, OrbitControls} from '@react-three/drei';
+import {Canvas} from '@react-three/fiber';
+import SecondModel from '@/components/models/planets/SecondModel';
+import ArticleCanvas from '@/components/ArticleCanvas/ArticleCanvas';
 
 const HistoryIntroduction = () => {
     return (
@@ -15,6 +20,15 @@ const HistoryIntroduction = () => {
                 Nunc sed sem eget turpis ultricies dapibus ut sed est. In efficitur blandit ullamcorper.
                 Suspendisse mollis lacus at purus ornare, id fringilla purus facilisis. Vivamus eget pretium risus.
             </p>
+            <ArticleCanvas float="right">
+                <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 4], fov: 50 }}>
+                    <Suspense fallback={null}>
+                        <Model />
+                        <Environment preset="city" />
+                    </Suspense>
+                    <OrbitControls autoRotate />
+                </Canvas>
+            </ArticleCanvas>
             <p>
                 Integer blandit feugiat massa nec tempor. Quisque eu faucibus justo. Phasellus mi eros, blandit vitae mauris nec, convallis sagittis sapien. Fusce lacus est, vulputate ac pulvinar nec, accumsan id dolor.
                 Nullam ut est massa. Sed et quam ut leo mattis dictum. Sed vulputate porta sem. Fusce porttitor vel lorem non faucibus.
@@ -28,6 +42,15 @@ const HistoryIntroduction = () => {
                 In nec molestie leo. Morbi sollicitudin id lacus id ornare. Curabitur mollis placerat odio, at tristique leo tempor at. In bibendum dui et quam aliquam euismod. Nunc rhoncus lorem erat, id tempor ipsum dictum eu. Aenean finibus nisi et ullamcorper rhoncus. In hac habitasse platea dictumst.
                 Duis ipsum sem, pulvinar sit amet tincidunt sed, ullamcorper non lorem. Aliquam at porta nibh.
             </p>
+            <ArticleCanvas float="left" >
+                <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 4], fov: 50 }}>
+                    <Suspense fallback={null}>
+                        <SecondModel />
+                        <Environment preset="city" />
+                    </Suspense>
+                    <OrbitControls autoRotate />
+                </Canvas>
+            </ArticleCanvas>
             <p>
                 Nunc non ex volutpat, sagittis urna vulputate, commodo velit. Praesent fermentum laoreet lacus, sit amet ullamcorper urna pellentesque eu. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
                 Praesent semper, nisi et molestie aliquet, sem odio volutpat nibh, vel consequat nisl risus ut sem. Pellentesque sem nunc, convallis at tempus rutrum, pulvinar ac felis. Morbi faucibus mi ac orci luctus, vel aliquet massa sodales. Duis placerat lorem neque, at volutpat arcu scelerisque at.

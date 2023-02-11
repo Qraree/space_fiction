@@ -1,6 +1,10 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import HistoryQuiz from '@/components/common/HistoryQuiz/HistoryQuiz';
 import {HISTORY_QUIZ} from '@/constants/history';
+import {Canvas} from '@react-three/fiber';
+import SecondModel from '@/components/models/planets/SecondModel';
+import {Environment, OrbitControls} from '@react-three/drei';
+import ArticleCanvas from '@/components/ArticleCanvas/ArticleCanvas';
 
 const HistoryFutureRocketScience = () => {
     return (
@@ -16,6 +20,15 @@ const HistoryFutureRocketScience = () => {
                 Ut facilisis vestibulum bibendum. Fusce sem enim, blandit a imperdiet id, mattis quis augue. Sed id arcu mollis risus elementum varius. Etiam nec turpis id diam sollicitudin hendrerit in eget purus.
                 In nec molestie leo. Morbi sollicitudin id lacus id ornare. Curabitur mollis placerat odio, at tristique leo tempor at. In bibendum dui et quam aliquam euismod. Nunc rhoncus lorem erat, id tempor ipsum dictum eu. Aenean finibus nisi et ullamcorper rhoncus. In hac habitasse platea dictumst. Duis ipsum sem, pulvinar sit amet tincidunt sed, ullamcorper non lorem. Aliquam at porta nibh.
             </p>
+            <ArticleCanvas float="right" >
+                <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 4], fov: 50 }}>
+                    <Suspense fallback={null}>
+                        <SecondModel />
+                        <Environment preset="city" />
+                    </Suspense>
+                    <OrbitControls autoRotate />
+                </Canvas>
+            </ArticleCanvas>
             <p>
                 Ut et mattis lacus, id malesuada nulla. Vestibulum dolor purus, consequat ac lorem et, blandit commodo dolor.
                 Praesent metus nunc, aliquam sit amet turpis vel, aliquet lobortis ligula. Nullam ac purus ac enim aliquet tristique.
