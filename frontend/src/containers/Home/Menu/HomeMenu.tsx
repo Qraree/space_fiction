@@ -28,7 +28,7 @@ const HomeMenu = () => {
 
     return (
         <div className={styles.historyContainer}>
-            <Navbar navbarShowed={navbarShowed} />
+            <Navbar navbarShowed={navbarShowed} navbarFixed={false}/>
             <div className={styles.contentContainer}>
                 <div className={styles.contentWrapper}>
                     <h1>Welcome, wanderer!</h1>

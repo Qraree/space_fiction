@@ -6,41 +6,46 @@
   display: flex;
   flex-direction: row;
   position: relative;
+  //border: 1px solid white;
 
 
-  .sectionNavigation{
-    border-radius: 5px;
-    margin-top: 70px;
-    width: 250px;
-    height: 500px;
-    position: fixed;
-    top: 0;
-    display: flex;
-    flex-direction: column;
-
-    h4 {
-      margin: 20px 0 20px 10px;
-    }
-
-    .articleNav {
-      border-bottom: 1px solid gainsboro;
-      height: 40px;
+  .sectionNavigationWrapper {
+    //border: 1px solid red;
+    min-width: 300px;
+    .sectionNavigation{
+      border-radius: 5px;
+      margin-top: 70px;
+      width: 250px;
+      position: fixed;
+      top: 0;
       display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      box-sizing: border-box;
-      padding-left: 10px;
+      flex-direction: column;
+      //border: 1px solid white;
 
-      &:nth-child(2) {
-        border-top: 1px solid gainsboro;
+      h4 {
+        margin: 20px 0 20px 10px;
       }
 
-      &:hover {
-        background-color: #2c2a2a;
+      .articleNav {
+        border-bottom: 1px solid gainsboro;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        box-sizing: border-box;
+        padding-left: 10px;
+
+        &:nth-child(2) {
+          border-top: 1px solid gainsboro;
+        }
+
+        &:hover {
+          background-color: #2c2a2a;
+        }
       }
     }
-
   }
+
 
   .articleNavigation {
     width: 250px;
@@ -61,7 +66,8 @@
     width: 1070px;
     min-height: 100px;
     color: white;
-    margin: auto;
+    text-align: justify;
+
 
     p {
       font-family: $roboto-font;

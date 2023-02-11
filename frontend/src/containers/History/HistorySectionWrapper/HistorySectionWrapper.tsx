@@ -13,32 +13,30 @@ const HistorySectionWrapper = ({ children }: HistorySectionProps) => {
 
     return (
         <div className={styles.container}>
-            <div className={styles.sectionNavigation}>
-                <h4>History Articles</h4>
-                {HISTORY_ARTICLES.map( article => (
-                    <LinkStyled href={article.link} key={article.id}>
-                        <div
-                            className={styles.articleNav}
-                            style={{
-                                background: article.link === router.asPath
-                                    ? 'white'
-                                    : 'transparent',
-                                color: article.link === router.asPath
-                                    ? 'black'
-                                    : 'white',
-                            }}
-                        >
-                            {article.title}
-                        </div>
-                    </LinkStyled>
-                ))}
+            <div className={styles.sectionNavigationWrapper}>
+                <div className={styles.sectionNavigation}>
+                    <h4>History Articles</h4>
+                    {HISTORY_ARTICLES.map( article => (
+                        <LinkStyled href={article.link} key={article.id}>
+                            <div
+                                className={styles.articleNav}
+                                style={{
+                                    background: article.link === router.asPath
+                                        ? 'white'
+                                        : 'transparent',
+                                    color: article.link === router.asPath
+                                        ? 'black'
+                                        : 'white',
+                                }}
+                            >
+                                {article.title}
+                            </div>
+                        </LinkStyled>
+                    ))}
+                </div>
             </div>
             <div className={styles.wrapper}>
                 {children}
-            </div>
-            <div className={styles.articleNavigation}>
-                <div className={styles.articleNavigationFix}>
-                </div>
             </div>
         </div>
 
