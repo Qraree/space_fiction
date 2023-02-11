@@ -3,13 +3,14 @@
 @import 'robotomonofont';
 
 body, html {
-  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(23,24,24,1) 80%, rgb(37, 35, 35) 90%, rgb(59, 63, 65) 99%);
+  background: linear-gradient(180deg, rgb(49, 48, 48) 0%, rgba(23,24,24,1) 80%, rgb(37, 35, 35) 90%, rgb(59, 63, 65) 99%);
   color: $white;
   margin: 0;
   overflow-x: hidden;
   font-family: $roboto-mono-font, monospace;
 }
 
-
-
+body {
+  overflow-y: hidden;
+}
 

@@ -1,0 +1,15 @@
+@import "src/styles/variables";
+
+.planetsContainer {
+  width: 1070px;
+  height: 100vh;
+  margin: 100px auto 0 auto;
+  background-color: transparent;
+
+  .planetWrapper {
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    border: 1px solid white;
+  }
+}

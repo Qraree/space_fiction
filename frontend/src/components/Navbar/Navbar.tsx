@@ -6,12 +6,14 @@ import Link from 'next/link';
 
 type navbarProps = {
     navbarShowed?: boolean;
+    navbarFixed?: boolean;
 }
 
-const Navbar = ({ navbarShowed = true }: navbarProps) => {
+const Navbar = ({ navbarShowed = true, navbarFixed = true }: navbarProps) => {
     return (
         <div className={classNames(styles.navbar, {
-            [styles.navbarShow]: navbarShowed
+            [styles.navbarShow]: navbarShowed,
+            [styles.navbarFixed]: navbarFixed,
         })}>
             <div className={styles.title}>
                 <Link href="/" className={styles.link}>
@@ -20,11 +22,11 @@ const Navbar = ({ navbarShowed = true }: navbarProps) => {
             </div>
             <div className={styles.navs}>
                 {WEBSITE_SECTIONS.map(section => (
-                    <div className={styles.nav} key={section.name}>
-                        <Link href={section.link} className={styles.link}>
+                    <Link href={section.link} className={styles.link} key={section.name}>
+                        <div className={styles.nav}>
                             {section.name}
-                        </Link>
-                    </div>
+                        </div>
+                    </Link>
                 ))}
             </div>
 

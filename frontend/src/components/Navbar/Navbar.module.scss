@@ -7,15 +7,13 @@
 }
 
 .navbar {
-  position: fixed;
-  top: -$navbar-height;
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   transition: all 200ms;
   opacity: 0;
   z-index: 9999;
+  display: flex;
 
   width: 100%;
   height: $navbar-height;
@@ -52,6 +50,10 @@
 }
 
 .navbarShow {
-  top: 0;
   opacity: 1;
+}
+
+.navbarFixed {
+  position: fixed;
+  top: 0;
 }
