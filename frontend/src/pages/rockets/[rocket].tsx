@@ -1,16 +1,18 @@
 import React from 'react';
+import {useRouter} from 'next/router';
 import PageHeader from '@/components/common/PageHeader/PageHeader';
 import Navbar from '@/components/Navbar/Navbar';
-import RocketsSection from '@/containers/Rockets/RocketsSection';
 
-const Rockets = () => {
+const Rocket = () => {
+    const router = useRouter();
+    const { rocket } = router.query;
     return (
         <>
             <PageHeader />
             <Navbar />
-            <RocketsSection />
+            {rocket}
         </>
     );
 };
 
-export default Rockets;
+export default Rocket;
