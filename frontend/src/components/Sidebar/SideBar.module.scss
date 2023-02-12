@@ -1,0 +1,17 @@
+.articleNav {
+  border-bottom: 1px solid gainsboro;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  padding-left: 10px;
+
+  &:nth-child(2) {
+    border-top: 1px solid gainsboro;
+  }
+
+  &:hover {
+    background-color: #2c2a2a;
+  }
+}
