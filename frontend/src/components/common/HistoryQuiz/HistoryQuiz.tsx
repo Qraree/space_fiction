@@ -6,11 +6,11 @@ import {QUIZ_RESULTS} from '@/constants/history';
 
 import styles from './HistoryQuiz.module.scss';
 
-type HistoryQuizProps = {
+interface HistoryQuizProps {
     Question: HistoryQuizQuestionType,
 }
 
-type UserOption = {
+interface UserOption {
     id: string,
     correct: boolean
 }

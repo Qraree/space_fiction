@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './LinkStyled.module.scss';
 
-type LinkStyledProps = {
+interface LinkStyledProps {
     href: string,
     children?: string | React.ReactNode,
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './TabPanel.module.scss';
 
-type TabPanelProps = {
+interface TabPanelProps {
     value: number;
     index: number;
     children?: React.ReactNode;

@@ -3,7 +3,7 @@ import styles from './ArticleCanvas.module.scss';
 import {Property} from 'csstype';
 import Float = Property.Float;
 
-type ArticleCanvasProps = {
+interface ArticleCanvasProps {
     float?: Float;
     children: React.ReactNode;
 }

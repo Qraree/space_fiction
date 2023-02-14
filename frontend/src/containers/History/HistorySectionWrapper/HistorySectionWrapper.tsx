@@ -5,7 +5,7 @@ import LinkStyled from '@/components/common/LinkStyled/LinkStyled';
 import {useRouter} from 'next/router';
 import Sidebar from '@/components/Sidebar/Sidebar';
 
-type HistorySectionProps = {
+interface HistorySectionProps {
     children?: React.ReactNode
 }
 

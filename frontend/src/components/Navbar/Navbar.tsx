@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import {WEBSITE_SECTIONS} from '@/constants/home';
 import Link from 'next/link';
 
-type navbarProps = {
+interface navbarProps {
     navbarShowed?: boolean;
     navbarFixed?: boolean;
 }

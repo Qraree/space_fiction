@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 
-type ButtonProps = {
+interface ButtonProps {
     children?: React.ReactNode;
     className: string;
 }

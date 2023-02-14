@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './RocketArticleWrapper.module.scss';
 
-type RocketArticleWrapperProps = {
+interface RocketArticleWrapperProps {
     children?: React.ReactNode;
 }
 
