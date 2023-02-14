@@ -6,12 +6,11 @@
   display: flex;
   flex-direction: row;
   position: relative;
-  //border: 1px solid white;
 
 
   .sectionNavigationWrapper {
-    //border: 1px solid red;
     min-width: 300px;
+
     .sectionNavigation{
       border-radius: 5px;
       margin-top: 70px;
@@ -53,7 +52,8 @@
     p {
       font-family: $roboto-font;
       font-size: 18px;
-      font-weight: 300;
+      font-weight: 400;
+      line-height: 1.5;
     }
   }
 
