@@ -10,7 +10,11 @@ body, html {
   font-family: $roboto-mono-font, monospace;
 }
 
+html {
+  height: 100vh;
+}
+
 body {
-  overflow-y: hidden;
+  height: 100%;
 }
 
