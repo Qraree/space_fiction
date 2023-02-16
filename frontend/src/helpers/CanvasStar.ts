@@ -3,8 +3,8 @@ import {randomChoice, randomInInterval, randomNumber} from '@/helpers/random';
 export default function CanvasStar(ctx: any) {
     this.x = randomNumber(innerWidth);
     this.y = randomNumber(innerHeight);
-    this.dx = randomInInterval(-0.005, 0.005);
-    this.dy = randomInInterval(-0.005, 0.005);
+    this.dx = randomInInterval(-0.05, 0.05);
+    this.dy = randomInInterval(-0.05, 0.05);
     this.radius = randomNumber(1.5);
     this.opacity = randomInInterval(0, 1);
 

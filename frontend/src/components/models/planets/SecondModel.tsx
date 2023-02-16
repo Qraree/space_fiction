@@ -1,14 +1,25 @@
-import React from 'react';
-import {useLoader} from '@react-three/fiber';
-import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
+import React, { useRef } from 'react';
+import { useGLTF } from '@react-three/drei';
 
-const SecondModel = () => {
-    const gltf = useLoader(GLTFLoader, '/3d_models/planets/don.glb');
+export function SecondModel(props: any) {
+    // @ts-ignore
+    const { nodes, materials } = useGLTF('/3d_models/planets/don.glb');
     return (
-        <>
-            <primitive object={gltf.scene} scale={25} />
-        </>
+        <group {...props} dispose={null}>
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Torus.geometry}
+                material={materials['Материал.001']}
+            />
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.Icing.geometry}
+                material={materials.Материал}
+            />
+        </group>
     );
-};
+}
 
-export default SecondModel;
+useGLTF.preload('/don.glb');
