@@ -47,9 +47,18 @@ const HomeStarSky: FC = () => {
     return (
         <div className={styles.starSkyContainer}>
             <canvas ref={canvasRef} />
-            <ButtonUnstyled className={styles.button} onClick={handleClick}>
-                Start
-            </ButtonUnstyled>
+            <div className={styles.wrapper}>
+                <div className={styles.quoteWrapper}>
+                    <div className={styles.quote}>
+                        <h1>Earth is the cradle of humanity, but one cannot live in a cradle forever.</h1>
+                        <p>Konstantin Tsiolkovsky</p>
+                    </div>
+                    <ButtonUnstyled className={styles.button} onClick={handleClick}>
+                        Start
+                    </ButtonUnstyled>
+
+                </div>
+            </div>
         </div>
     );
 };
