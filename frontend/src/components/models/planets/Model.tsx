@@ -3,10 +3,10 @@ import {useLoader} from '@react-three/fiber';
 import {GLTFLoader} from 'three/examples/jsm/loaders/GLTFLoader';
 
 const Model = () => {
-    const gltf = useLoader(GLTFLoader, '/3d_models/planets/earth.glb');
+    const gltf = useLoader(GLTFLoader, '/3d_models/rockets/rocket.glb');
     return (
         <>
-            <primitive object={gltf.scene} scale={0.01} />
+            <primitive object={gltf.scene} scale={0.3} />
         </>
     );
 };
