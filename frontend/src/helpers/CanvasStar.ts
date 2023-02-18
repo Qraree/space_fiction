@@ -1,4 +1,4 @@
-import {randomChoice, randomInInterval, randomNumber} from '@/helpers/random';
+import {randomInInterval, randomNumber} from '@/helpers/random';
 
 export default function CanvasStar(ctx: any) {
     this.x = randomNumber(innerWidth);
@@ -18,23 +18,14 @@ export default function CanvasStar(ctx: any) {
 
     };
 
+
     this.update = function () {
-        if (this.x + this.radius > innerWidth || this.y - this.radius < 0) {
-            this.x = randomChoice(0, randomNumber(innerWidth));
-            if (this.x === 0) {
-                this.y = randomNumber(innerHeight);
-            } else {
-                this.y = innerHeight;
-            }
+        if (this.x + this.radius > innerWidth || this.x - this.radius < 0) {
+            this.dx = -this.dx;
         }
 
-        if (this.x - this.radius < 0 || this.y + this.radius > innerHeight) {
-            this.x = randomChoice(innerWidth, randomNumber(innerWidth));
-            if (this.x === innerWidth) {
-                this.y = randomNumber(innerHeight);
-            } else {
-                this.y = 0;
-            }
+        if (this.y - this.radius < 0 || this.y + this.radius > innerHeight) {
+            this.dy = -this.dy;
         }
         this.x += this.dx;
         this.y += this.dy;

@@ -5,12 +5,15 @@ import {ButtonUnstyled} from '@mui/base';
 
 import styles from './HomeStarSky.module.scss';
 import CanvasStar from '../../../helpers/CanvasStar';
+import RocketShip from '@/helpers/RocketShip';
+import {useSwiper} from 'swiper/react';
 
 
 const HomeStarSky: FC = () => {
     const [widthState, heightState] = useDeviceSize();
     const canvasRef = useRef(null);
     const router = useRouter();
+    const swiper = useSwiper();
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -26,6 +29,9 @@ const HomeStarSky: FC = () => {
             circleArray.push(new CanvasStar(ctx));
         }
 
+        // @ts-ignore
+        circleArray.push(new RocketShip(ctx));
+
         const animate = () => {
             requestAnimationFrame(animate);
             ctx.clearRect(0, 0, innerWidth, innerHeight);
@@ -34,14 +40,13 @@ const HomeStarSky: FC = () => {
                 circleArray[i].update();
             }
         };
+
+
         animate();
     }, []);
 
     const handleClick = () => {
-        window.scrollTo({
-            top: innerHeight,
-            behavior: 'smooth'
-        });
+        swiper.slideNext();
     };
 
     return (
