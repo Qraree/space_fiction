@@ -17,10 +17,4 @@ export const WEBSITE_SECTIONS = [
         text: 'Learn more about planets in our solar system!',
         link: '/planets',
     },
-    {   name: 'Game',
-        src: '/img/tabPhotos/game_tab_photo.jpg',
-        alt: 'game photo',
-        text: 'Try yourself in this mini-game about rockets and planets!',
-        link: '/game',
-    },
 ];

@@ -1,26 +1,15 @@
-import React, { useEffect, useState} from 'react';
-import Navbar from '@/components/Navbar/Navbar';
-import {Tab, Tabs} from '@mui/material';
-import TabPanel from '@/components/TabPanel/TabPanel';
+import React, { useEffect, useState } from 'react';
 import styles from './HomeMenu.module.scss';
-import {ButtonUnstyled} from '@mui/base';
-import {useRouter} from 'next/router';
-import {WEBSITE_SECTIONS} from '@/constants/home';
+import { useRouter } from 'next/router';
+import { WEBSITE_SECTIONS } from '@/constants/home';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import {Navigation, Pagination} from 'swiper';
+import LinkStyled from '@/components/common/LinkStyled/LinkStyled';
+
 
 const HomeMenu = () => {
-    const [navbarShowed, setNavbarShowed] = useState(false);
     const [value, setValue] = useState(0);
     const router = useRouter();
-
-    useEffect(() => {
-        window.addEventListener('scroll', function() {
-            if (document.body.scrollTop > innerHeight - 100 || document.documentElement.scrollTop > innerHeight - 100) {
-                setNavbarShowed(true);
-            } else {
-                setNavbarShowed(false);
-            }
-        });
-    }, []);
 
     const handleChange = (event: React.SyntheticEvent, newValue: number) => {
         setValue(newValue);
@@ -28,37 +17,32 @@ const HomeMenu = () => {
 
     return (
         <div className={styles.historyContainer}>
-            <Navbar navbarShowed={navbarShowed} navbarFixed={false}/>
             <div className={styles.contentContainer}>
                 <div className={styles.contentWrapper}>
                     <h1>Welcome, wanderer!</h1>
+                    <div className={styles.homeMenuText}>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in lacus et tortor posuere euismod.
+                            Suspendisse potenti. Vivamus accumsan magna in neque tempor pretium. Morbi metus libero, ullamcorper et mi quis, dignissim dapibus purus.
+                            Nam in euismod erat. Etiam feugiat nunc non rhoncus facilisis. Vestibulum mattis velit quis erat auctor, vitae placerat felis scelerisque.
+                            Nam purus lectus, sollicitudin ut justo eu, luctus pellentesque augue. Nullam fringilla pretium semper.
+                        </p>
+                    </div>
                     <div className={styles.tabsContainer}>
-                        <Tabs
-                            orientation="vertical"
-                            value={value}
-                            onChange={handleChange}
-                            //@ts-ignore
-                            textColor="white"
-                        >
-                            {WEBSITE_SECTIONS.map( (tabPanel, index) => (
-                                <Tab label={WEBSITE_SECTIONS[index].name} key={WEBSITE_SECTIONS[index].name}/>
-                            ))}
-                        </Tabs>
-                        {WEBSITE_SECTIONS.map( (tabPanel, index) => (
-                            <TabPanel value={value} index={index} key={WEBSITE_SECTIONS[index].name}>
-                                <div className={styles.tabContent}>
-                                    <img
-                                        src={WEBSITE_SECTIONS[index].src}
-                                        alt={WEBSITE_SECTIONS[index].alt}
-                                    />
-                                    <div className={styles.tabContentText}>
-                                        {WEBSITE_SECTIONS[index].text}
+                        {WEBSITE_SECTIONS.map( section => (
+                            <LinkStyled href={section.link} key={section.name} >
+                                <div className={styles.tabContainer}>
+                                    <div className={styles.tabWrapper}>
+                                        <div className={styles.tab}>
+                                            <img src={section.src} />
+                                            <div className={styles.text}>
+                                                {section.text}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <ButtonUnstyled className={styles.tabContentButton} onClick={() => router.push(WEBSITE_SECTIONS[index].link)}>
-                                        Go to page
-                                    </ButtonUnstyled>
+                                    <h3>{section.name}</h3>
                                 </div>
-                            </TabPanel>
+                            </LinkStyled>
                         ))}
                     </div>
                 </div>

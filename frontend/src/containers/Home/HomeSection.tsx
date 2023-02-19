@@ -1,8 +1,9 @@
+import 'swiper/css';
 import React from 'react';
+import { Mousewheel, Pagination } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import HomeMenu from '@/containers/Home/Menu/HomeMenu';
 import HomeStarSky from '@/containers/Home/StarSky/HomeStarSky';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import {EffectFade, Mousewheel, Pagination, Scrollbar} from 'swiper';
 import styles from './HomeSection.module.scss';
 
 const HomeSection = () => {

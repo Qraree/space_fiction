@@ -12,9 +12,7 @@ const Rocket = () => {
         <>
             <PageHeader />
             <Navbar />
-            <RocketArticleWrapper>
-                <RocketArticle />
-            </RocketArticleWrapper>
+            <RocketArticle />
         </>
     );
 };
