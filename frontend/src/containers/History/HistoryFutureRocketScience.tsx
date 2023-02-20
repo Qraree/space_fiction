@@ -1,9 +1,9 @@
 import React, {Suspense} from 'react';
-import HistoryQuiz from '@/components/common/HistoryQuiz/HistoryQuiz';
+import HistoryQuiz from '@/components/HistorySection/HistoryQuiz/HistoryQuiz';
 import {HISTORY_QUIZ} from '@/constants/history';
 import {Canvas} from '@react-three/fiber';
 import {Environment, OrbitControls} from '@react-three/drei';
-import ArticleCanvas from '@/components/ArticleCanvas/ArticleCanvas';
+import ArticleCanvas from '@/components/HistorySection/ArticleCanvas/ArticleCanvas';
 import {SecondModel} from '@/components/models/planets/SecondModel';
 
 const HistoryFutureRocketScience = () => {

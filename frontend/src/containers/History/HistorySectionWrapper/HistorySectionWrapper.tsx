@@ -3,7 +3,7 @@ import styles from './HistorySectionWrapper.module.scss';
 import {HISTORY_ARTICLES} from '@/constants/history';
 import LinkStyled from '@/components/common/LinkStyled/LinkStyled';
 import {useRouter} from 'next/router';
-import Sidebar from '@/components/Sidebar/Sidebar';
+import Sidebar from '@/components/HistorySection/Sidebar/Sidebar';
 
 interface HistorySectionProps {
     children?: React.ReactNode

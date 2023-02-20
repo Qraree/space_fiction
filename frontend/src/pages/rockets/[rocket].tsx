@@ -1,8 +1,7 @@
 import React from 'react';
 import {useRouter} from 'next/router';
 import PageHeader from '@/components/common/PageHeader/PageHeader';
-import Navbar from '@/components/Navbar/Navbar';
-import RocketArticleWrapper from '@/containers/Rockets/RocketArticleWrapper/RocketArticleWrapper';
+import Navbar from '@/components/common/Navbar/Navbar';
 import RocketArticle from '@/containers/Rockets/RocketArticle/RocketArticle';
 
 const Rocket = () => {
