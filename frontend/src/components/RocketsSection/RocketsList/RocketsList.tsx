@@ -1,9 +1,11 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import styles from './RocketsList.module.scss';
-import LinkStyled from '@/components/common/LinkStyled/LinkStyled';
 import {RocketsListType} from '@/types/rockets';
 import classNames from 'classnames';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
+import Rocket from '@/components/RocketsSection/RocketsList/Rocket/Rocket';
+import {useAppDispatch} from '@/redux/hooks';
+import {addNewCountry, showModal} from '@/redux/features/rocket/rocketSlice';
 
 interface RocketsListProps {
     rocketsSection: RocketsListType
@@ -11,10 +13,15 @@ interface RocketsListProps {
 
 const RocketsList = ({rocketsSection}: RocketsListProps) => {
     const [hideList, setHideList] = useState<boolean>(false);
+    const dispatch = useAppDispatch();
 
-    function handleList() {
+    const handleList = () => {
         setHideList(!hideList);
-    }
+    };
+
+    const handleAddingRocket = () => {
+        dispatch(showModal(rocketsSection.countryName));
+    };
 
     return (
         <div className={styles.rocketsByCountry} key={rocketsSection.countryName}>
@@ -33,18 +40,12 @@ const RocketsList = ({rocketsSection}: RocketsListProps) => {
                 [styles.rocketsHide]: hideList
             })}>
                 {rocketsSection.rockets.map(rocket => (
-                    <LinkStyled href={`/rockets/${rocket.title}`} key={rocket.title}>
-                        <div className={styles.rocket}>
-                            <img src={rocket.img}/>
-                            <div className={styles.name}>
-                                <p>
-                                    {rocket.title}
-                                </p>
-                            </div>
-                        </div>
-                    </LinkStyled>
+                    <Rocket rocket={rocket} key={rocket.title} />
                 ))}
-                <div className={classNames(styles.rocket, styles.addRocket)}>
+                <div
+                    className={classNames(styles.rocket, styles.addRocket)}
+                    onClick={handleAddingRocket}
+                >
                     <p>
                         New rocket
                     </p>

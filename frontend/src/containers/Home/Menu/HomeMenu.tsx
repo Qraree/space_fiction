@@ -1,19 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styles from './HomeMenu.module.scss';
-import { useRouter } from 'next/router';
 import { WEBSITE_SECTIONS } from '@/constants/home';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import {Navigation, Pagination} from 'swiper';
-import LinkStyled from '@/components/common/LinkStyled/LinkStyled';
+import SectionTab from '@/components/HomeSection/SectionTab/SectionTab';
 
 
 const HomeMenu = () => {
-    const [value, setValue] = useState(0);
-    const router = useRouter();
-
-    const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-        setValue(newValue);
-    };
 
     return (
         <div className={styles.historyContainer}>
@@ -30,19 +21,7 @@ const HomeMenu = () => {
                     </div>
                     <div className={styles.tabsContainer}>
                         {WEBSITE_SECTIONS.map( section => (
-                            <LinkStyled href={section.link} key={section.name} >
-                                <div className={styles.tabContainer}>
-                                    <div className={styles.tabWrapper}>
-                                        <div className={styles.tab}>
-                                            <img src={section.src} />
-                                            <div className={styles.text}>
-                                                {section.text}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <h3>{section.name}</h3>
-                                </div>
-                            </LinkStyled>
+                            <SectionTab  section={section} key={section.name}/>
                         ))}
                     </div>
                 </div>

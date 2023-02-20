@@ -1,0 +1,102 @@
+@import "src/styles/variables";
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.50);
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .modal {
+    width: 500px;
+    padding: 20px;
+    background: black;
+    border: 1px solid white;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    .form {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      label {
+        margin-bottom: 10px;
+      }
+
+      .input {
+        padding: 10px;
+        width: 80%;
+        display: block;
+        border: 0;
+        margin-bottom: 20px;
+        transition: 200ms all;
+        background: transparent;
+        border-bottom: 1px solid white;
+        color: white;
+        font-family: $roboto-mono-font;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 5px white;
+        }
+      }
+
+      .submit {
+        background: white;
+        padding: 10px;
+        color: black;
+        border: 1px solid transparent;
+        font-family: $roboto-mono-font;
+        border-radius: 5px;
+        transition: 200ms all;
+        margin-top: 10px;
+        width: 100px;
+
+
+        &:hover {
+          background: $black;
+          color: $white;
+          border: 1px solid $white;
+        }
+
+      }
+
+    }
+
+    .close {
+      float: right;
+      background: white;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      padding: 10px;
+      height: 25px;
+      width: 25px;
+      transition: 200ms all;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        background: $black;
+        color: $white;
+        border: 1px solid $white;
+      }
+
+    }
+
+  }
+}

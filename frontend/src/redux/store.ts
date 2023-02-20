@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import historyReducer from './features/history/historySlice';
+import rocketReducer from './features/rocket/rocketSlice';
 
 export const store = configureStore({
     reducer: {
-        history: historyReducer
+        history: historyReducer,
+        rocket: rocketReducer
     }
 });
 
