@@ -24,7 +24,7 @@ const RocketsList = ({rocketsSection}: RocketsListProps) => {
     };
 
     return (
-        <div className={styles.rocketsByCountry} key={rocketsSection.countryName}>
+        <div className={styles.rocketsByCountry}>
             <div className={styles.countryHeader}>
                 <div className={styles.flagName}>
                     <h3>{rocketsSection.countryName}</h3>
