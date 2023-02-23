@@ -4,18 +4,20 @@ import { AppService } from './app.service';
 import { RocketsModule } from './rockets/rockets.module';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { ConfigModule } from '@nestjs/config';
+import { Rocket } from './rockets/entities/rocket.entity';
 
 @Module({
   imports: [
     RocketsModule,
     SequelizeModule.forRoot({
       dialect: 'postgres',
-      host: process.env.POSTGRES_HOST,
+      host: 'localhost',
       port: parseInt(process.env.POSTGRES_PORT) || 5432,
-      username: process.env.POSTGRES_USERNAME,
-      password: process.env.POSTGRES_PASSWORD,
-      database: process.env.POSTGRES_DATABASE,
-      models: [],
+      username: 'postgres',
+      password: 'root',
+      database: 'spaceFiction',
+      models: [Rocket],
+      autoLoadModels: true,
     }),
     ConfigModule.forRoot(),
   ],

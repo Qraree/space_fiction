@@ -64,6 +64,7 @@
         transition: 200ms all;
         margin-top: 10px;
         width: 100px;
+        cursor: pointer;
 
 
         &:hover {
@@ -89,6 +90,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
 
       &:hover {
         background: $black;
