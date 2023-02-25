@@ -1,4 +1,5 @@
 export class CreateRocketDto {
+  readonly id: number;
   readonly name: string;
-  readonly img: string;
+  readonly rocketCountryId: number;
 }

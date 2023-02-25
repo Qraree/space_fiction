@@ -5,15 +5,15 @@ import HistorySectionWrapper from '@/containers/History/HistorySectionWrapper/Hi
 import HistoryFutureRocketScience from '@/containers/History/HistoryFutureRocketScience';
 
 const FutureOfRocketScience = () => {
-    return (
-        <>
-            <PageHeader />
-            <Navbar />
-            <HistorySectionWrapper>
-                <HistoryFutureRocketScience />
-            </HistorySectionWrapper>
-        </>
-    );
+  return (
+    <>
+      <PageHeader />
+      <Navbar />
+      <HistorySectionWrapper>
+        <HistoryFutureRocketScience />
+      </HistorySectionWrapper>
+    </>
+  );
 };
 
 export default FutureOfRocketScience;

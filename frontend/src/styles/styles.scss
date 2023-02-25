@@ -2,7 +2,8 @@
 @import 'robotofont';
 @import 'robotomonofont';
 
-body, html {
+body,
+html {
   background: $black;
   color: $white;
   margin: 0;
@@ -14,12 +15,8 @@ html {
   background-image: url($star-sky-background-image);
 }
 
-
-
-
 body {
   overflow-y: hidden;
   height: 100%;
   position: relative;
 }
-

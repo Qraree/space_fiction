@@ -5,15 +5,15 @@ import HistorySectionWrapper from '@/containers/History/HistorySectionWrapper/Hi
 import HistoryIntroduction from '@/containers/History/HistoryIntroduction';
 
 const Introduction = () => {
-    return (
-        <>
-            <PageHeader />
-            <Navbar />
-            <HistorySectionWrapper>
-                <HistoryIntroduction />
-            </HistorySectionWrapper>
-        </>
-    );
+  return (
+    <>
+      <PageHeader />
+      <Navbar />
+      <HistorySectionWrapper>
+        <HistoryIntroduction />
+      </HistorySectionWrapper>
+    </>
+  );
 };
 
 export default Introduction;

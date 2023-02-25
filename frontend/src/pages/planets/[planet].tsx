@@ -5,15 +5,15 @@ import RocketArticleWrapper from '@/containers/Rockets/RocketArticleWrapper/Rock
 import RocketArticle from '@/containers/Rockets/RocketArticle/RocketArticle';
 
 const Planet = () => {
-    return (
-        <>
-            <PageHeader />
-            <Navbar />
-            <RocketArticleWrapper>
-                <h1>Hello</h1>
-            </RocketArticleWrapper>
-        </>
-    );
+  return (
+    <>
+      <PageHeader />
+      <Navbar />
+      <RocketArticleWrapper>
+        <h1>Hello</h1>
+      </RocketArticleWrapper>
+    </>
+  );
 };
 
 export default Planet;

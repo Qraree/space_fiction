@@ -1,21 +1,21 @@
-import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface historyState {
-    selectedArticle: string
+  selectedArticle: string;
 }
 
 const initialState: historyState = {
-    selectedArticle: ''
+  selectedArticle: '',
 };
 
 export const historySlice = createSlice({
-    name: 'history',
-    initialState,
-    reducers: {
-        setSelectedArticle: (state, action: PayloadAction<string>) => {
-            state.selectedArticle = action.payload;
-        }
-    }
+  name: 'history',
+  initialState,
+  reducers: {
+    setSelectedArticle: (state, action: PayloadAction<string>) => {
+      state.selectedArticle = action.payload;
+    },
+  },
 });
 
 export const { setSelectedArticle } = historySlice.actions;

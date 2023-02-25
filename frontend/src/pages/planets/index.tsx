@@ -5,15 +5,15 @@ import RocketArticleWrapper from '@/containers/Rockets/RocketArticleWrapper/Rock
 import PlanetsSection from '@/containers/Planets/PlanetsSection';
 
 const Index = () => {
-    return (
-        <>
-            <PageHeader />
-            <Navbar />
-            <RocketArticleWrapper>
-                <PlanetsSection />
-            </RocketArticleWrapper>
-        </>
-    );
+  return (
+    <>
+      <PageHeader />
+      <Navbar />
+      <RocketArticleWrapper>
+        <PlanetsSection />
+      </RocketArticleWrapper>
+    </>
+  );
 };
 
 export default Index;

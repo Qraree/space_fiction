@@ -1,4 +1,4 @@
-@import "src/styles/variables";
+@import 'src/styles/variables';
 
 .starSkyContainer {
   position: relative;
@@ -8,8 +8,6 @@
   display: flex;
   justify-content: center;
   align-content: center;
-
-
 }
 
 .wrapper {
@@ -52,9 +50,6 @@
       &:hover {
         box-shadow: 0 0 30px white;
       }
-
     }
   }
-
-
 }

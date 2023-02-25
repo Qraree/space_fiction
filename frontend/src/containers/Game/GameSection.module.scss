@@ -1,12 +1,9 @@
-
 .container {
   width: 95%;
   height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-
-
 
   .rocketCanvasWrapper {
     min-width: 400px;
@@ -18,11 +15,10 @@
       min-width: 400px;
       height: 800px;
       border: 1px solid white;
-      background-image: url("/img/StarSky.png");
+      background-image: url('/img/StarSky.png');
       position: fixed;
       left: 30px;
     }
-
   }
 
   .wrapper {
@@ -42,12 +38,10 @@
     height: auto;
     margin-top: 100px;
 
-
     .rocketInfo {
       width: inherit;
       height: inherit;
       position: fixed;
-
 
       .table {
         width: 100%;
@@ -77,6 +71,3 @@
     }
   }
 }
-
-
-

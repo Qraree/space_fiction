@@ -1,4 +1,4 @@
-@import "../../../styles/variables";
+@import '../../../styles/variables';
 
 .container {
   width: 90%;
@@ -7,11 +7,10 @@
   flex-direction: row;
   position: relative;
 
-
   .sectionNavigationWrapper {
     min-width: 300px;
 
-    .sectionNavigation{
+    .sectionNavigation {
       border-radius: 5px;
       margin-top: 70px;
       width: 250px;
@@ -26,14 +25,12 @@
     }
   }
 
-
   .articleNavigation {
     width: 250px;
     height: 500px;
     position: absolute;
     right: 0;
     top: 10px;
-
 
     &Fix {
       width: 250px;
@@ -48,7 +45,6 @@
     color: white;
     //text-align: justify;
 
-
     p {
       font-family: $roboto-font;
       font-size: 18px;
@@ -56,10 +52,4 @@
       line-height: 1.5;
     }
   }
-
 }
-
-
-
-
-
