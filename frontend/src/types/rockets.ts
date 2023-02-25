@@ -1,10 +1,12 @@
-export interface RocketsListType {
-    countryName: string,
-    countryFlag: string,
-    rockets: RocketType[]
+export interface IRocketsList {
+  id: number;
+  name: string;
+  flag: string;
 }
 
-export interface RocketType {
-    title: string,
-    img: string,
+export interface IRocket {
+  id: number;
+  name: string;
+  img: string;
+  rocketCountryId: number;
 }
