@@ -1,13 +1,13 @@
 import React, {useCallback, useMemo, useState} from 'react';
 import classNames from 'classnames';
-import {HistoryQuizQuestionType} from '@/types/historyQuizQuestion';
+import {IHistoryQuizQuestion} from '@/types/historyQuizQuestion';
 import {ButtonUnstyled} from '@mui/base';
 import {QUIZ_RESULTS} from '@/constants/history';
 
 import styles from './HistoryQuiz.module.scss';
 
 interface HistoryQuizProps {
-    Question: HistoryQuizQuestionType,
+    Question: IHistoryQuizQuestion,
 }
 
 interface UserOption {

@@ -1,11 +1,10 @@
-export interface HistoryQuizQuestionType {
-    question: string,
-    options: QuizOptionType[]
-
+export interface IHistoryQuizQuestion {
+  question: string;
+  options: IQuizOption[];
 }
 
-interface QuizOptionType {
-    id: string,
-    title: string,
-    correct: boolean,
+interface IQuizOption {
+  id: string;
+  title: string;
+  correct: boolean;
 }

@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './SectionTab.module.scss';
 import LinkStyled from '@/components/common/LinkStyled/LinkStyled';
-import {HomeSectionsType} from '@/types/homeSections';
+import {IHomeSections} from '@/types/homeSections';
 
 interface SectionTabProps {
-    section: HomeSectionsType
+    section: IHomeSections
 }
 
 const SectionTab = ({ section }: SectionTabProps) => {
