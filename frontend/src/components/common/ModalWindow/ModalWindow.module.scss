@@ -60,6 +60,7 @@
         color: black;
         border: 1px solid transparent;
         font-family: $roboto-mono-font;
+        font-size: 16px;
         border-radius: 5px;
         transition: 200ms all;
         margin-top: 10px;
@@ -95,5 +96,43 @@
         border: 1px solid $white;
       }
     }
+
+    .uploadFileWrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      width: 80%;
+      margin: 20px 0;
+
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .fileLabel {
+        cursor: pointer;
+        border: 1px solid $white;
+        padding: 10px;
+        margin: 0;
+        transition: 200ms all;
+        border-radius: 5px;
+
+        background: $white;
+        color: $black;
+
+        &:hover {
+          background: $black;
+          color: $white;
+        }
+      }
+
+      p {
+        color: white;
+        margin: 0;
+      }
+    }
+
+
   }
 }

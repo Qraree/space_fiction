@@ -13,7 +13,7 @@ import {
 import { RocketsService } from './rockets.service';
 import { CreateRocketDto } from './dto/create-rocket.dto';
 import { UpdateRocketDto } from './dto/update-rocket.dto';
-import { ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
 import { FileInterceptor } from '@nestjs/platform-express';
 
 @ApiTags('Rockets')

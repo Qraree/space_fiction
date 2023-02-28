@@ -10,3 +10,14 @@ export interface IRocket {
   img: string;
   rocketCountryId: number;
 }
+
+export interface IMockRocketsList {
+  countryName: string;
+  countryFlag: string;
+  rockets: IMockRocket[];
+}
+
+export interface IMockRocket {
+  title: string;
+  img: string;
+}

@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { IRocketsList, IRocket } from '@/types/rockets';
+import { IRocketsList, IRocket, IMockRocketsList } from '@/types/rockets';
 
 interface NewRocketType {
   countryName: string;
@@ -14,13 +14,13 @@ interface NewCountryType {
 
 interface rocketState {
   showModal: boolean;
-  rocketList: IRocketsList[];
-  currentCountryName: string;
+  rocketList: IMockRocketsList[];
+  currentCountryId: number;
 }
 
 const initialState: rocketState = {
   showModal: false,
-  currentCountryName: '',
+  currentCountryId: 0,
   rocketList: [
     {
       countryName: 'Russia',
@@ -69,9 +69,9 @@ export const rocketSlice = createSlice({
   name: 'rocket',
   initialState,
   reducers: {
-    showModal: (state: rocketState, action: PayloadAction<string>) => {
+    showModal: (state: rocketState, action: PayloadAction<number>) => {
       state.showModal = true;
-      state.currentCountryName = action.payload;
+      state.currentCountryId = action.payload;
     },
     hideModal: (state: rocketState) => {
       state.showModal = false;

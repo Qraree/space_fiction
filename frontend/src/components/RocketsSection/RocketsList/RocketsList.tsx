@@ -32,7 +32,7 @@ const RocketsList = ({ rocketsSection }: RocketsListProps) => {
   };
 
   const handleAddingRocket = () => {
-    dispatch(showModal(rocketsSection.name));
+    dispatch(showModal(rocketsSection.id));
   };
 
   return (
