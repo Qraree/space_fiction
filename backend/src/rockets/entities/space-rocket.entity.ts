@@ -9,8 +9,14 @@ import {
 import { ApiProperty } from '@nestjs/swagger';
 import { RocketsCountry } from '../../rockets-country/entities/rockets-country.entity';
 
-@Table({ tableName: 'rockets' })
-export class Rocket extends Model {
+interface createRocketAttrs {
+  name: string;
+  img: string;
+  rocketCountryId: number;
+}
+
+@Table({ tableName: 'spaceRockets' })
+export class Rocket extends Model<Rocket, createRocketAttrs> {
   @ApiProperty({ example: '1', description: "Rocket's id" })
   @Column({
     type: DataType.INTEGER,

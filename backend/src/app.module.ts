@@ -8,9 +8,14 @@ import { RocketsCountry } from './rockets-country/entities/rockets-country.entit
 import { FilesService } from './files/files.service';
 import { FilesModule } from './files/files.module';
 import { RocketsModule } from './rockets/rockets.module';
-import { Rocket } from './rockets/entities/rocket.entity';
+import { Rocket } from './rockets/entities/space-rocket.entity';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { UserModule } from './user/user.module';
 import * as path from 'path';
+import { User } from './user/entities/user.entity';
+import { RolesModule } from './roles/roles.module';
+import { Role } from './roles/entities/role.entity';
+import { UserRoles } from './roles/entities/userRole.entity';
 
 @Module({
   imports: [
@@ -27,12 +32,14 @@ import * as path from 'path';
       username: process.env.POSTGRES_USERNAME,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DATABASE,
-      models: [RocketsCountry, Rocket],
+      models: [RocketsCountry, Rocket, User, Role, UserRoles],
       autoLoadModels: true,
     }),
     RocketsCountryModule,
     FilesModule,
     RocketsModule,
+    UserModule,
+    RolesModule,
   ],
   controllers: [AppController],
   providers: [AppService, FilesService],

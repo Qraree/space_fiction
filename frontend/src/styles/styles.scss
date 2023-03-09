@@ -4,19 +4,13 @@
 
 body,
 html {
-  background: $black;
+  //background: $black;
   color: $white;
   margin: 0;
   overflow-x: hidden;
   font-family: $roboto-mono-font, monospace;
-}
-
-html {
+  height: 100%;
+  min-height: 100%;
   background-image: url($star-sky-background-image);
 }
 
-body {
-  overflow-y: hidden;
-  height: 100%;
-  position: relative;
-}

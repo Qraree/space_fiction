@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { CreateRocketDto } from './dto/create-rocket.dto';
 import { UpdateRocketDto } from './dto/update-rocket.dto';
 import { InjectModel } from '@nestjs/sequelize';
-import { Rocket } from './entities/rocket.entity';
+import { Rocket } from './entities/space-rocket.entity';
 import { FilesService } from '../files/files.service';
 
 @Injectable()
@@ -39,7 +39,7 @@ export class RocketsService {
   }
 
   update(id: number, updateRocketDto: UpdateRocketDto) {
-    return `This action updates a #${id} rocket`;
+    return `This actihon updates a #${id} rocket`;
   }
 
   async remove(id: number) {

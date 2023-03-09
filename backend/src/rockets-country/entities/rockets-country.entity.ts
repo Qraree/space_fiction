@@ -1,6 +1,6 @@
 import { Column, HasMany, Model, Table } from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
-import { Rocket } from '../../rockets/entities/rocket.entity';
+import { Rocket } from '../../rockets/entities/space-rocket.entity';
 
 @Table({ tableName: 'RocketsCountries' })
 export class RocketsCountry extends Model {

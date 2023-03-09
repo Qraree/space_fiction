@@ -1,28 +1,41 @@
-import React, { ChangeEvent, FormEvent, useState } from 'react';
-import styles from './ModalWindow.module.scss';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { v4 as uuidv4 } from 'uuid';
-import { addNewRocket, hideModal } from '@/redux/features/rocket/rocketSlice';
 import axios from 'axios';
+import React, { ChangeEvent, FormEvent, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { hideModal, updateRockets } from '@/redux/features/rocket/rocketSlice';
+import { randomInIntervalFloor } from '@/helpers/random';
+import styles from './ModalWindow.module.scss';
+import { MODAL_MODE } from '@/constants/rockets';
 
 const ModalWindow = () => {
   const dispatch = useAppDispatch();
   const [uploadedFile, setUploadedFile] = useState<string>('');
   const [file, setFile] = useState<string | Blob>('');
 
-  const countryId = useAppSelector((state) => state.rocket.currentCountryId);
+  const { currentCountryId, modalMode } = useAppSelector(
+    (state) => state.rocket,
+  );
 
   const [name, setName] = useState('');
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData();
-    const url = 'http://localhost:5000/rockets';
-    // formData.append('id', uuidv4().replace(/\D/g, ''));
-    formData.append('id', '11');
-    formData.append('name', name);
-    formData.append('img', file);
-    formData.append('rocketCountryId', countryId.toString());
+    const url = `http://localhost:5000/rockets${
+      modalMode === MODAL_MODE.ROCKET ? `` : '-country'
+    }`;
+    console.log(url);
+    if (modalMode === MODAL_MODE.ROCKET) {
+      formData.append('id', randomInIntervalFloor(15, 2147483647).toString());
+      formData.append('name', name);
+      formData.append('img', file);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      formData.append('rocketCountryId', currentCountryId.toString());
+    } else {
+      formData.append('name', name);
+      formData.append('flag', file);
+    }
+
     const config = {
       headers: {
         'content-type': 'multipart/form-data',
@@ -32,6 +45,10 @@ const ModalWindow = () => {
       .post(url, formData, config)
       .then((response) => console.log(response.data));
     dispatch(hideModal());
+    window.location.reload();
+    // setTimeout(() => {
+    //   dispatch(updateRockets());
+    // }, 200);
   }
 
   const handleChangeFile = (e: ChangeEvent<HTMLInputElement>) => {
@@ -54,14 +71,22 @@ const ModalWindow = () => {
           x
         </button>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <label>Rocket Name</label>
+          {modalMode === MODAL_MODE.ROCKET ? (
+            <label>Rocket Name</label>
+          ) : (
+            <label>Country Name</label>
+          )}
           <input
             type="text"
             className={styles.input}
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
-          <label>Rocket Picture</label>
+          {modalMode === MODAL_MODE.ROCKET ? (
+            <label>Rocket Picture</label>
+          ) : (
+            <label>Country flag</label>
+          )}
           <div className={styles.uploadFileWrapper}>
             <label htmlFor="file-upload" className={styles.fileLabel}>
               Upload picture

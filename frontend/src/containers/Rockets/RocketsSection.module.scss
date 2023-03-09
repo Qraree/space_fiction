@@ -1,0 +1,15 @@
+@import '../../styles/variables';
+
+.button {
+  background: white;
+  padding: 10px;
+  font-family: $roboto-mono-font;
+  border: 0;
+  border-radius: 5px;
+  transition: 200ms all;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.66);
+  }
+}

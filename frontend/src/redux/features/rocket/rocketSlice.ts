@@ -1,10 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IRocketsList, IRocket, IMockRocketsList } from '@/types/rockets';
+import { MODAL_MODE, MODAL_MODE_TYPE } from '@/constants/rockets';
 
 interface NewRocketType {
   countryName: string;
   title: string;
   img: string;
+}
+
+interface showModalAction {
+  rocketCountryId?: number;
+  modalMode: 'rocket' | 'country';
 }
 
 interface NewCountryType {
@@ -15,12 +21,16 @@ interface NewCountryType {
 interface rocketState {
   showModal: boolean;
   rocketList: IMockRocketsList[];
-  currentCountryId: number;
+  currentCountryId?: number;
+  updateRockets: boolean;
+  modalMode: 'rocket' | 'country';
 }
 
 const initialState: rocketState = {
   showModal: false,
   currentCountryId: 0,
+  updateRockets: false,
+  modalMode: MODAL_MODE.ROCKET,
   rocketList: [
     {
       countryName: 'Russia',
@@ -69,9 +79,10 @@ export const rocketSlice = createSlice({
   name: 'rocket',
   initialState,
   reducers: {
-    showModal: (state: rocketState, action: PayloadAction<number>) => {
+    showModal: (state: rocketState, action: PayloadAction<showModalAction>) => {
       state.showModal = true;
-      state.currentCountryId = action.payload;
+      state.modalMode = action.payload.modalMode;
+      state.currentCountryId = action.payload.rocketCountryId;
     },
     hideModal: (state: rocketState) => {
       state.showModal = false;
@@ -96,10 +107,24 @@ export const rocketSlice = createSlice({
       const { countryName, countryFlag } = action.payload;
       state.rocketList.push({ countryName, countryFlag, rockets: [] });
     },
+    updateRockets: (state: rocketState) => {
+      state.updateRockets = !state.updateRockets;
+    },
+    setModalMode: (
+      state: rocketState,
+      action: PayloadAction<'rocket' | 'country'>,
+    ) => {
+      state.modalMode = action.payload;
+    },
   },
 });
 
-export const { showModal, hideModal, addNewRocket, addNewCountry } =
-  rocketSlice.actions;
+export const {
+  showModal,
+  hideModal,
+  addNewCountry,
+  updateRockets,
+  setModalMode,
+} = rocketSlice.actions;
 
 export default rocketSlice.reducer;
