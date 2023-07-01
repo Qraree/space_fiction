@@ -1,0 +1,47 @@
+version: "3.5"
+
+services:
+
+  frontend:
+    container_name: space_fiction_frontend
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+    ports:
+      - "3000:3000"
+
+
+  backend:
+    container_name: space_fiction_backend
+    build: ./backend
+    env_file:
+      - ./backend/.development.env
+    volumes:
+      - ./backend:/app
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    restart: always
+
+  postgres:
+    container_name: space_fiction_database
+    image: postgres:15.3-alpine
+    ports:
+      - "5433:5432"
+    env_file:
+      - ./backend/.development.env
+    volumes:
+      - ~/postgres:/var/lib/postgresql/data
+    restart: always
+
+  pgadmin:
+    image: dpage/pgadmin4
+    depends_on:
+      - postgres
+    ports:
+      - "5555:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+
