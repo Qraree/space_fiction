@@ -20,7 +20,7 @@ interface UserCreationAttrs {
 
 @Table({ tableName: 'users' })
 export class User extends Model<User, UserCreationAttrs> {
-  @ApiProperty({ example: 'ivanov@gmail.com', description: "User's email" })
+  @ApiProperty({ example: 'ivanov@gdmail.comm', description: "User'fs email" })
   @Column({ type: DataType.STRING, allowNull: false })
   email: string;
 
@@ -31,7 +31,7 @@ export class User extends Model<User, UserCreationAttrs> {
   @Column({ type: DataType.STRING, allowNull: false })
   username: string;
 
-  @ApiProperty({ example: 'qwerty123', description: "User's [assword" })
+  @ApiProperty({ example: 'qwerty123', description: "User's password" })
   @Column({ type: DataType.STRING, allowNull: false })
   password: string;
 

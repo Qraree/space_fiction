@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 import styles from './RocketArticle.module.scss';
 import { useRouter } from 'next/router';
 import { Canvas } from '@react-three/fiber';
