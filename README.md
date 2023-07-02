@@ -1,3 +1,9 @@
-Space Fiction
+## Space Fiction
 
-Website dedicated to launch vehicles
+Website dedicated to launch vehicles.
+
+### Stack
+- Next.js
+- SCSS
+- Nest.js
+- Postgres
