@@ -5,6 +5,7 @@ services:
   frontend:
     container_name: space_fiction_frontend
     build: ./frontend
+    restart: unless-stopped
     volumes:
       - ./frontend:/app
     ports:
@@ -22,7 +23,7 @@ services:
       - "5000:5000"
     depends_on:
       - postgres
-    restart: always
+    restart: unless-stopped
 
   postgres:
     container_name: space_fiction_database
@@ -33,7 +34,7 @@ services:
       - ./backend/.development.env
     volumes:
       - ~/postgres:/var/lib/postgresql/data
-    restart: always
+    restart: unless-stopped
 
   pgadmin:
     image: dpage/pgadmin4
@@ -41,7 +42,21 @@ services:
       - postgres
     ports:
       - "5555:80"
+    restart: unless-stopped
     environment:
       PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
       PGADMIN_DEFAULT_PASSWORD: admin
 
+  minio:
+    container_name: space_fiction_storage
+    image: minio/minio
+    volumes:
+      - ~/minio/data:/data
+    environment:
+      MINIO_ROOT_USER: minio
+      MINIO_ROOT_PASSWORD: minio123
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+      - "9090:9090"
+    command: server ~/data --address ":9000" --console-address ":9090"
