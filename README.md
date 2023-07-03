@@ -4,6 +4,6 @@ Website dedicated to launch vehicles.
 
 ### Stack
 - Next.js
-- SCSS
+- Sass
 - Nest.js
 - Postgres
