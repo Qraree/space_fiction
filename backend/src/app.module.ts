@@ -16,6 +16,7 @@ import { User } from './user/entities/user.entity';
 import { RolesModule } from './roles/roles.module';
 import { Role } from './roles/entities/role.entity';
 import { UserRoles } from './roles/entities/userRole.entity';
+import { StorageModule } from './storage/storage.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { UserRoles } from './roles/entities/userRole.entity';
     RocketsModule,
     UserModule,
     RolesModule,
+    StorageModule,
   ],
   controllers: [AppController],
   providers: [AppService, FilesService],
