@@ -14,7 +14,6 @@ export class RocketsCountryService {
   ) {}
   async create(createRocketsCountryDto: CreateRocketsCountryDto, flag) {
     const fileName = await this.fileService.createFile(flag);
-    const countryRocket = { ...createRocketsCountryDto, flag: fileName };
     return await this.rocketCountryModel.create({
       ...createRocketsCountryDto,
       flag: fileName,

@@ -4,7 +4,6 @@ import { RocketsController } from './rockets.controller';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { Rocket } from './entities/space-rocket.entity';
 import { RocketsCountry } from '../rockets-country/entities/rockets-country.entity';
-import { FilesService } from '../files/files.service';
 import { FilesModule } from '../files/files.module';
 
 @Module({

@@ -9,7 +9,6 @@ import { addNewCountry, showModal } from '@/redux/features/rocket/rocketSlice';
 import axios from 'axios';
 import { MODAL_MODE } from '@/constants/rockets';
 import { rocketAPI } from '@/redux/services/RocketService';
-import { ImRocket } from 'react-icons/all';
 
 interface RocketsListProps {
   rocketsSection: IRocketsList;
