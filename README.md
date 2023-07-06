@@ -1,6 +1,6 @@
 ## Space Fiction
 
-Website dedicated to launch vehicles.
+Website dedicated to space launch vehicles.
 
 ### Stack
 - Next.js
