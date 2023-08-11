@@ -23,9 +23,6 @@ import { StorageModule } from './storage/storage.module';
     ConfigModule.forRoot({
       envFilePath: `.${process.env.NODE_ENV}.env`,
     }),
-    ServeStaticModule.forRoot({
-      rootPath: path.resolve(__dirname, 'static'),
-    }),
     SequelizeModule.forRoot({
       dialect: 'postgres',
       host: process.env.POSTGRES_HOST,
