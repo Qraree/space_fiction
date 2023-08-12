@@ -1,59 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './RocketsList.module.scss';
-import { IRocket, IRocketsList } from '@/types/rockets';
+import { IRocketListItem } from '@/types/rockets';
 import classNames from 'classnames';
 import { BsChevronDown, BsChevronUp } from 'react-icons/bs';
 import Rocket from '@/components/RocketsSection/RocketsList/Rocket/Rocket';
-import { useAppDispatch, useAppSelector } from '@/redux/hooks';
-import { addNewCountry, showModal } from '@/redux/features/rocket/rocketSlice';
-import axios from 'axios';
-import { MODAL_MODE } from '@/constants/rockets';
-import { rocketAPI } from '@/redux/services/RocketService';
 
 interface RocketsListProps {
-  rocketsSection: IRocketsList;
+  country: IRocketListItem;
 }
 
-const RocketsList = ({ rocketsSection }: RocketsListProps) => {
+const RocketsList = ({ country }: RocketsListProps) => {
   const [hideList, setHideList] = useState<boolean>(false);
-  const [rocketList, setRocketList] = useState<IRocket[]>([]);
-  const rocketUpdate = useAppSelector((state) => state.rocket.updateRockets);
-  const { data: rockets } = rocketAPI.endpoints.fetchAllCountryRockets.useQuery(
-    rocketsSection.id,
-  );
-
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    // (async () => {
-    //   const response = await axios.get(
-    //     `http://localhost:5000/rockets/by-country?country=${rocketsSection.id}`,
-    //   );
-    //   const data = response.data;
-    //   setRocketList(data);
-    // })();
-  }, []);
 
   const handleList = () => {
     setHideList(!hideList);
-  };
-
-  const handleAddingRocket = () => {
-    dispatch(
-      showModal({
-        rocketCountryId: rocketsSection.id,
-        modalMode: MODAL_MODE.ROCKET,
-      }),
-    );
   };
 
   return (
     <div className={styles.rocketsByCountry}>
       <div className={styles.countryHeader}>
         <div className={styles.flagName}>
-          <h3>{rocketsSection.name}</h3>
+          <h3>{country.NAME}</h3>
           <div className={styles.flag}>
-            <img src={`http://localhost:5000/${rocketsSection.flag}`} />
+            <img src={country.PHOTO_URL} alt="Country flag" />
           </div>
         </div>
         <button onClick={handleList}>
@@ -65,14 +34,9 @@ const RocketsList = ({ rocketsSection }: RocketsListProps) => {
           [styles.rocketsHide]: hideList,
         })}
       >
-        {rockets &&
-          rockets.map((rocket) => <Rocket rocket={rocket} key={rocket.name} />)}
-        <div
-          className={classNames(styles.rocket, styles.addRocket)}
-          onClick={handleAddingRocket}
-        >
-          <p>New rocket</p>
-        </div>
+        {country.ROCKETS.map((rocket) => (
+          <Rocket rocket={rocket} key={rocket.ROCKET_NAME} />
+        ))}
       </div>
     </div>
   );

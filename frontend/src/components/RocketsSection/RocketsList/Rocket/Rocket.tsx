@@ -1,19 +1,19 @@
 import React from 'react';
 import styles from './Rocket.module.scss';
 import LinkStyled from '@/components/common/LinkStyled/LinkStyled';
-import { IRocket } from '@/types/rockets';
+import { IRocket, IRocketsListNew } from '@/types/rockets';
 
 interface RocketProps {
-  rocket: IRocket;
+  rocket: IRocketsListNew;
 }
 
 const Rocket = ({ rocket }: RocketProps) => {
   return (
-    <LinkStyled href={`/rockets/${rocket.name}`}>
+    <LinkStyled href={`/rockets/${rocket.ROCKET_NAME}`}>
       <div className={styles.rocket}>
-        <img src={`http://localhost:5000/${rocket.img}`} />
+        <img src={rocket.ROCKET_PHOTO_URL} />
         <div className={styles.name}>
-          <p>{rocket.name}</p>
+          <p>{rocket.ROCKET_NAME}</p>
         </div>
       </div>
     </LinkStyled>

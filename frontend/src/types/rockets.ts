@@ -1,3 +1,14 @@
+export interface IRocketListItem {
+  NAME: string;
+  PHOTO_URL: string;
+  ROCKETS: IRocketsListNew[];
+}
+
+export interface IRocketsListNew {
+  ROCKET_NAME: string;
+  ROCKET_PHOTO_URL: string;
+}
+
 export interface IRocketsList {
   id: number;
   name: string;
