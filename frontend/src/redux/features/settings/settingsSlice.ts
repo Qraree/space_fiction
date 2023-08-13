@@ -5,7 +5,7 @@ interface IInitialState {
 }
 
 export const initialState: IInitialState = {
-  language: 'en',
+  language: 'ru',
 };
 
 export const settingsSlice = createSlice({
