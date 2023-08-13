@@ -1,16 +1,20 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import PageHeader from '@/components/common/PageHeader/PageHeader';
 import Navbar from '@/components/common/Navbar/Navbar';
 import RocketArticle from '@/containers/Rockets/RocketArticle/RocketArticle';
-import { GetStaticPaths } from 'next';
-import { ALL_ROCKETS } from '@/constants/rockets';
-import { getRocketsPosts } from '@/lib/getRocketPosts';
-// import {getRocketsPosts} from "@/lib/posts";
+import { GetStaticPaths, GetStaticProps } from 'next';
+import { ALL_PATHS, ALL_ROCKETS } from '@/constants/rockets';
+import { getSectionPosts } from '@/lib/getSectionPosts';
+import { LANGUAGES } from '@/constants/common';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useAppSelector } from '@/redux/hooks';
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = ALL_ROCKETS.map((rocket) => ({
-    params: { rocket },
+  const paths = ALL_PATHS.map((set) => ({
+    params: {
+      rocket: set[1],
+    },
+    locale: set[0],
   }));
 
   return {
@@ -20,19 +24,25 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 // @ts-ignore
-export async function getStaticProps({ params }) {
-  const postData = await getRocketsPosts(params.rocket);
+export async function getStaticProps({ params, locale }) {
+  // const postData = await getRocketsPosts(params.rocket);
+
+  const postData = await getSectionPosts(
+    'rockets',
+    'en',
+    params.rocket,
+    locale,
+  );
   if (!postData) {
     return {
-      props: {
-        message: 'error',
-      },
+      notFound: true,
     };
   }
 
   return {
     props: {
       postData,
+      ...(await serverSideTranslations(locale as string, ['common'])),
     },
   };
 }

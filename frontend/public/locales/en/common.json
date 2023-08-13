@@ -1,0 +1,8 @@
+{
+  "errorPage": "404 - page not found",
+  "navbarSections": {
+    "History": "History",
+    "Rockets": "Rockets",
+    "Planets": "Planets"
+  }
+}

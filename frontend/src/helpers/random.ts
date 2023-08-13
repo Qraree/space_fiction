@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from 'uuid';
+
 export function randomNumber(num: number) {
   return Math.floor(Math.random() * num);
 }
@@ -16,4 +18,8 @@ export function randomChoice(...args: number[]) {
     argsArray.push(element);
   }
   return argsArray[randomInInterval(0, args.length)];
+}
+
+export function getRandomId() {
+  return uuidv4();
 }

@@ -1,3 +1,5 @@
+const { i18n } = require('./next-i18next.config');
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
@@ -7,6 +9,10 @@ const nextConfig = {
       use: 'raw-loader',
     });
     return config;
+  },
+  i18n: {
+    locales: ['ru', 'en'],
+    defaultLocale: 'en',
   },
 };
 

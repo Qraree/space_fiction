@@ -1,0 +1,8 @@
+{
+  "errorPage": "404 - страница не найдена",
+  "navbarSections": {
+    "History": "История",
+    "Rockets": "Ракеты",
+    "Planets": "Планеты"
+  }
+}

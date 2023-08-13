@@ -1,3 +1,5 @@
+import { LANGUAGES } from '@/constants/common';
+
 export const ROCKETS_BY_COUNTRIES = [
   {
     NAME: 'Russia',
@@ -37,6 +39,15 @@ for (let country of ROCKETS_BY_COUNTRIES) {
 }
 
 export const ALL_ROCKETS = ROCKETS;
+
+let PATHS = [];
+for (let lang of LANGUAGES) {
+  for (let rocket of ALL_ROCKETS) {
+    PATHS.push([lang, rocket]);
+  }
+}
+
+export const ALL_PATHS = PATHS;
 
 export interface MODAL_MODE_TYPE {
   ROCKET: 'rocket';
