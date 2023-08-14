@@ -10,6 +10,8 @@ services:
       - ./frontend:/app
     ports:
       - "3000:3000"
+    networks:
+      - space
 
 
   backend:
@@ -24,6 +26,8 @@ services:
     depends_on:
       - postgres
     restart: unless-stopped
+    networks:
+      - space
 
   postgres:
     container_name: space_fiction_database
@@ -35,6 +39,8 @@ services:
     volumes:
       - ~/postgres:/var/lib/postgresql/data
     restart: unless-stopped
+    networks:
+      - space
 
   pgadmin:
     image: dpage/pgadmin4
@@ -46,6 +52,8 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
       PGADMIN_DEFAULT_PASSWORD: admin
+    networks:
+      - space
 
   minio:
     container_name: space_fiction_storage
@@ -56,7 +64,14 @@ services:
       MINIO_ROOT_USER: minio
       MINIO_ROOT_PASSWORD: minio123
     restart: unless-stopped
+    networks:
+      - space
     ports:
-      - "9000:9000"
+      - "9001:9001"
       - "9090:9090"
     command: server ~/data --address ":9000" --console-address ":9090"
+
+
+networks:
+  space:
+    external: true
