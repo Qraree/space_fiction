@@ -2,13 +2,15 @@ import React from 'react';
 import styles from './HomeMenu.module.scss';
 import { WEBSITE_SECTIONS } from '@/constants/home';
 import SectionTab from '@/components/HomeSection/SectionTab/SectionTab';
+import {useTranslation} from "next-i18next";
 
 const HomeMenu = () => {
+  const {t} = useTranslation('common')
   return (
     <div className={styles.historyContainer}>
       <div className={styles.contentContainer}>
         <div className={styles.contentWrapper}>
-          <h1>Welcome, wanderer!</h1>
+          <h1>{t('welcome')}</h1>
           <div className={styles.homeMenuText}>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus

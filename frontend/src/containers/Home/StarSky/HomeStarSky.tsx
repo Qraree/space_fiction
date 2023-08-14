@@ -7,12 +7,14 @@ import styles from './HomeStarSky.module.scss';
 import CanvasStar from '../../../helpers/CanvasStar';
 import RocketShip from '@/helpers/RocketShip';
 import { useSwiper } from 'swiper/react';
+import {useTranslation} from "next-i18next";
 
 const HomeStarSky: FC = () => {
   const [widthState, heightState] = useDeviceSize();
   const canvasRef = useRef(null);
   const router = useRouter();
   const swiper = useSwiper();
+  const {t} = useTranslation('common')
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -54,13 +56,12 @@ const HomeStarSky: FC = () => {
         <div className={styles.quoteWrapper}>
           <div className={styles.quote}>
             <h1>
-              Earth is the cradle of humanity, but one cannot live in a cradle
-              forever.
+              {t('quote')}
             </h1>
-            <p>Konstantin Tsiolkovsky</p>
+            <p>{t('quoteAuthor')}</p>
           </div>
           <ButtonUnstyled className={styles.button} onClick={handleClick}>
-            Start
+            {t('start')}
           </ButtonUnstyled>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { LANGUAGES } from '@/constants/common';
 export const ROCKETS_BY_COUNTRIES = [
   {
     NAME: 'Russia',
-    PHOTO_URL: `${process.env.NEXT_PUBLIC_SERVER_URL}/static-files/Russia`,
+    PHOTO_URL: `${process.env.NEXT_PUBLIC_SERVER_URL}/static-files/russia.png`,
     ROCKETS: [
       {
         ROCKET_NAME: '8K-99',
@@ -17,7 +17,7 @@ export const ROCKETS_BY_COUNTRIES = [
   },
   {
     NAME: 'USA',
-    PHOTO_URL: '',
+    PHOTO_URL: `${process.env.NEXT_PUBLIC_SERVER_URL}/static-files/usa.png`,
     ROCKETS: [
       {
         ROCKET_NAME: 'Saturn',

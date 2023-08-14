@@ -4,5 +4,12 @@
     "History": "History",
     "Rockets": "Rockets",
     "Planets": "Planets"
-  }
+  },
+  "quote": "Earth is the cradle of humanity, but one cannot live in a cradle\n forever.",
+  "quoteAuthor": "Konstantin Tsiolkovsky",
+  "start": "Start",
+  "welcome": "Welcome, wanderer",
+  "HistoryTabText": "Learn more about history of rocket science!",
+  "RocketsTabText": "Learn more about rocket ships!",
+  "PlanetsTabText": "Learn more about planets in our solar system!"
 }
