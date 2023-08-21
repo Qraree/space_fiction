@@ -1,13 +1,13 @@
 import React from 'react';
 import PageHeader from '@/components/common/PageHeader/PageHeader';
-import Navbar from '@/components/common/Navbar/Navbar';
 import RocketArticle from '@/containers/Rockets/RocketArticle/RocketArticle';
-import {GetStaticPaths, GetStaticProps} from 'next';
-import {ALL_PATHS, ALL_ROCKETS} from '@/constants/rockets';
+import {GetStaticPaths} from 'next';
+import {ALL_PATHS} from '@/constants/rockets';
 import {getSectionPosts} from '@/lib/getSectionPosts';
-import {LANGUAGES} from '@/constants/common';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
-import {useAppSelector} from '@/redux/hooks';
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import('@/components/common/Navbar/Navbar'), {ssr: false})
 
 export const getStaticPaths: GetStaticPaths = async () => {
     const paths = ALL_PATHS.map((set) => ({

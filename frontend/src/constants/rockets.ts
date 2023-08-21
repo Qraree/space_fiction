@@ -7,11 +7,11 @@ export const ROCKETS_BY_COUNTRIES = [
     ROCKETS: [
       {
         ROCKET_NAME: '8K-99',
-        ROCKET_PHOTO_URL: '',
+        ROCKET_PHOTO_URL: `${process.env.NEXT_PUBLIC_SERVER_URL}/static-files/preview/8K-99`,
       },
       {
         ROCKET_NAME: 'Soyuz',
-        ROCKET_PHOTO_URL: '',
+        ROCKET_PHOTO_URL: `${process.env.NEXT_PUBLIC_SERVER_URL}/static-files/preview/Soyuz`,
       },
     ],
   },

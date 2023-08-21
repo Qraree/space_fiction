@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import {getLang} from "@/lib/changeLanguageStorage";
 
 interface IInitialState {
-  language: 'ru' | 'en';
+  language: string
 }
 
 export const initialState: IInitialState = {
-  language: 'ru',
+  language: getLang()
 };
 
 export const settingsSlice = createSlice({

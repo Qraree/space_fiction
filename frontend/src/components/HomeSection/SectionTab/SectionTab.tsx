@@ -19,7 +19,7 @@ const SectionTab = ({ section }: SectionTabProps) => {
             <div className={styles.text}>{t(`${section.name}TabText`)}</div>
           </div>
         </div>
-        <h3>{section.name}</h3>
+        <h3>{t(`navbarSections.${section.name}`)}</h3>
       </div>
     </LinkStyled>
   );
