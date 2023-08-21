@@ -8,6 +8,7 @@ import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { changeLanguage } from '@/redux/features/settings/settingsSlice';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import {setLang} from "@/lib/changeLanguageStorage";
 
 interface navbarProps {
   navbarShowed?: boolean;
@@ -22,15 +23,17 @@ const Navbar = ({ navbarShowed = true, navbarFixed = true }: navbarProps) => {
 
   const handleChange = (value: 'ru' | 'en') => {
     dispatch(changeLanguage(value));
+    router.push('/', '/', { locale: value });
+    setLang(value)
 
-    const arrayPath = router.asPath.split('/').slice(1);
-    if (arrayPath.length >= 3) {
-      const newArrayPath =
-        '/' + arrayPath[0] + '/' + value + '/' + arrayPath[2];
-      router.push('/', '/', { locale: value });
-    } else {
-      router.push('/', '/', { locale: value });
-    }
+
+    // todo push to current article/page (not just main)
+    // if (arrayPath.length >= 3) {
+    //   const newArrayPath = '/' + arrayPath[0] + '/' + value + '/' + arrayPath[2];
+    //   router.push('/', '/', { locale: value });
+    // } else {
+    //   router.push('/', '/', { locale: value });
+    // }
   };
 
   return (
@@ -63,6 +66,7 @@ const Navbar = ({ navbarShowed = true, navbarFixed = true }: navbarProps) => {
       <Select
         className={styles.customSelect}
         onChange={handleChange}
+          // @ts-ignore
         defaultValue={lang}
         options={[
           { value: 'ru', label: 'ru' },

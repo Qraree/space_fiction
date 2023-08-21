@@ -3,11 +3,11 @@ import html from 'remark-html';
 import * as fs from 'fs';
 import matter from 'gray-matter';
 
-export async function getSectionPosts(section, language, rocket, locale) {
-  console.log(`/app/src/content/${section}/${String(locale)}/${rocket}.md`);
+export async function getSectionPosts(section, locale, article) {
+  console.log(`/app/src/content/${section}/${String(locale)}/${article}.md`);
   try {
     const fileContents = fs.readFileSync(
-      `/app/src/content/${section}/${locale}/${rocket}.md`,
+      `/app/src/content/${section}/${locale}/${article}.md`,
       'utf8',
     );
 
@@ -20,7 +20,7 @@ export async function getSectionPosts(section, language, rocket, locale) {
 
     // Combine the data with the id and contentHtml
     return {
-      rocket,
+      article,
       contentHtml,
       ...matterResult.data,
     };

@@ -5,9 +5,8 @@ import RocketsSection from '@/containers/Rockets/RocketsSection';
 import RocketArticleWrapper from '@/containers/Rockets/RocketArticleWrapper/RocketArticleWrapper';
 import ModalWindow from '@/components/common/ModalWindow/ModalWindow';
 import { useAppSelector } from '@/redux/hooks';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticProps } from 'next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { ALL_PATHS } from '@/constants/rockets';
 
 const Index = () => {
   const { showModal } = useAppSelector((state) => state.rocket);

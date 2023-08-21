@@ -17,7 +17,7 @@ const RocketArticle = ({ postData }: RocketArticleProps) => {
   return (
     <div className={styles.container}>
       <div className={styles.rocketCanvasWrapper}>
-        <div className={styles.rocketCanvas}>
+        <section className={styles.rocketCanvas}>
           <Canvas>
             <Suspense fallback={null}>
               <Model />
@@ -25,7 +25,7 @@ const RocketArticle = ({ postData }: RocketArticleProps) => {
             </Suspense>
             <OrbitControls autoRotate />
           </Canvas>
-        </div>
+        </section>
       </div>
       <div className={styles.wrapper}>
         <h1>{postData.title}</h1>

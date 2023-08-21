@@ -1,4 +1,5 @@
 const { i18n } = require('./next-i18next.config');
+const withMDX = require('@next/mdx')()
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -14,6 +15,7 @@ const nextConfig = {
     locales: ['ru', 'en'],
     defaultLocale: 'en',
   },
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx']
 };
 
-module.exports = nextConfig;
+module.exports = withMDX(nextConfig)
