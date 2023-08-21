@@ -1,20 +1,21 @@
 import { remark } from 'remark';
-import html from 'remark-html';
 import * as fs from 'fs';
 import matter from 'gray-matter';
+import remarkMdx from 'remark-mdx';
 
 export async function getSectionPosts(section, locale, article) {
   console.log(`/app/src/content/${section}/${String(locale)}/${article}.md`);
   try {
     const fileContents = fs.readFileSync(
-      `/app/src/content/${section}/${locale}/${article}.md`,
+      `/app/src/content/${section}/${locale}/${article}.mdx`,
       'utf8',
     );
 
     const matterResult = matter(fileContents);
 
     const processedContent = await remark()
-      .use(html)
+      .use(remarkMdx)
+      // .processSync('import a from "b"\n\na <b /> c {1 + 1} d')
       .process(matterResult.content);
     const contentHtml = processedContent.toString();
 
