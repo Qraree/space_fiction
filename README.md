@@ -2,6 +2,8 @@
 
 Website dedicated to space launch vehicles.
 
+...loading...
+
 
 ### Stack
 - Next.js
